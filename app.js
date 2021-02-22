@@ -11,7 +11,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 // Setup a default catch-all route that sends back a welcome message in JSON format.
-//require('./routes')(app);
+//require('./routes')(app);  pendiente crear rutas
 app.get('*', (req, res) => res.status(200).send({
      message: 'Nos hemos conectado',
 }));
