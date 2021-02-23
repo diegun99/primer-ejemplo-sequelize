@@ -11,6 +11,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      perim_abdomen.hasMany(models.riesgo_diabetes, {
+        foreignKey: 'perim_abdomen_id',
+        as: 'riesgo_diabetes'
+
+      });
     }
   };
   perim_abdomen.init({

@@ -13,11 +13,21 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       entrevistado.belongsTo(models.tipo_documento);
       entrevistado.belongsTo(models.estado_civil);
-      entrevistado.belongsTo(models.estado_civil);
       entrevistado.belongsTo(models.nivel_educativo);
       entrevistado.belongsTo(models.estrato_id);
       entrevistado.belongsTo(models.regimen_salud_id);
       entrevistado.belongsTo(models.genero_id);
+
+      entrevistado.hasMany(models.tamizaje ,{
+        foreignKey: 'entrevista_id',
+        as: 'tamizaje'
+      });
+
+      entrevistado.hasMany(models.riesgo_diabetes, {
+        foreignKey: 'entrevista_id',
+        as: 'riesgo_diabetes'
+
+      });
       
       
     }

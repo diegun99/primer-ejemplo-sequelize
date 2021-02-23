@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      riesgo_cardiovascular.belongsTo(models.riesgo_cardiovascular);
+      riesgo_cardiovascular.belongsTo(models.calculo_rcv);
     }
   };
   riesgo_cardiovascular.init({

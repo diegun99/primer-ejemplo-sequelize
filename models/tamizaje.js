@@ -15,6 +15,11 @@ module.exports = (sequelize, DataTypes) => {
       tamizaje.belongsTo(models.interpretacion_imc_id);
       tamizaje.belongsTo(models.frec_cons_frutas_id);
       tamizaje.belongsTo(models.diagnostico_diabetes_id);
+
+      tamizaje.hasMany(models.resultado_rcv, {
+        foreignKey: 'tamizaje_id',
+        as: 'resultado_rcv'
+      });
     }
   };
   tamizaje.init({

@@ -11,6 +11,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      activ_fisica.hasMany(models.riesgo_diabetes, {
+        foreignKey: 'activ_fisica_id',
+        as: 'riesgo_diabetes'
+
+      });
     }
   };
   activ_fisica.init({

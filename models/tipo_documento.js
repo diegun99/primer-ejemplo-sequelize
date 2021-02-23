@@ -11,6 +11,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      tipo_documento.hasMany(models.entrevistado,{
+        foreignKey: 'tipo_documento',
+        as: 'entrevistados'
+      });
+    
     }
   };
   tipo_documento.init({
