@@ -11,6 +11,18 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      riesgo_diabetes.belongsTo(models.puntaje_x_edad_id);
+      riesgo_diabetes.belongsTo(models.imc_id);
+      riesgo_diabetes.belongsTo(models.perim_abdomen_id);
+      riesgo_diabetes.belongsTo(models.activ_fisica_id);
+      riesgo_diabetes.belongsTo(models.entrevista_id);
+      riesgo_diabetes.belongsTo(models.cons_frutas_id);
+      riesgo_diabetes.belongsTo(models.medicamentos_hta_id);
+      riesgo_diabetes.belongsTo(models.nivel_glucosa_id);
+      riesgo_diabetes.belongsTo(models.familia_diabeticos_id);
+      riesgo_diabetes.belongsTo(models.riesgo_diabetes);
+
+
     }
   };
   riesgo_diabetes.init({

@@ -11,6 +11,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      tamizaje.belongsTo(models.entrevista_id);
+      tamizaje.belongsTo(models.interpretacion_imc_id);
+      tamizaje.belongsTo(models.frec_cons_frutas_id);
+      tamizaje.belongsTo(models.diagnostico_diabetes_id);
     }
   };
   tamizaje.init({
