@@ -11,6 +11,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      interpretacion_imc.hasMany(models.tamizaje ,{
+        foreignKey: 'entrevista_idinterpretacion_imc_id',
+        as: 'tamizaje'
+      });
     }
   };
   interpretacion_imc.init({

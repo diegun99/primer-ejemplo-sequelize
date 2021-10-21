@@ -11,6 +11,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      imc.hasMany(models.riesgo_diabetes, {
+        foreignKey: 'imc_id',
+        as: 'riesgo_diabetes'
+
+      });
     }
   };
   imc.init({
