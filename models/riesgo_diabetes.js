@@ -11,19 +11,35 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      riesgo_diabetes.belongsTo(models.puntaje_x_edad_id);
-      riesgo_diabetes.belongsTo(models.imc_id);
-      riesgo_diabetes.belongsTo(models.perim_abdomen_id);
-      riesgo_diabetes.belongsTo(models.activ_fisica_id);
-      riesgo_diabetes.belongsTo(models.entrevista_id);
-      riesgo_diabetes.belongsTo(models.cons_frutas_id);
-      riesgo_diabetes.belongsTo(models.medicamentos_hta_id);
-      riesgo_diabetes.belongsTo(models.nivel_glucosa_id);
-      riesgo_diabetes.belongsTo(models.familia_diabeticos_id);
-      // pendiente revisar
 
+      this.belongsTo(models.puntaje_x_edad, {
+        foreignKey: 'puntaje_x_edad_id'
+      });
 
-
+      this.belongsTo(models.imc, {
+        foreignKey: 'imc_id'
+      });
+      this.belongsTo(models.perim_abdomen, {
+        foreignKey: 'perim_abdomen_id'
+      });
+      this.belongsTo(models.activ_fisica, {
+        foreignKey: 'activ_fisica_id'
+      });
+      this.belongsTo(models.entrevista, {
+        foreignKey: 'entrevista_id'
+      });
+      this.belongsTo(models.cons_frutas, {
+        foreignKey: 'cons_frutas_id'
+      });
+      this.belongsTo(models.medicamentos_hta, {
+        foreignKey: 'medicamentos_hta_id'
+      });
+      this.belongsTo(models.nivel_glucosa, {
+        foreignKey: 'nivel_glucosa_id'
+      });
+      this.belongsTo(models.familia_diabeticos, {
+        foreignKey: 'familia_diabeticos_id'
+      });
     }
   };
   riesgo_diabetes.init({
@@ -41,6 +57,11 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'riesgo_diabetes',
+    freezeTableName: true,
+    name: {
+      singular: 'riesgo_diabetes',
+      plural: 'riesgo_diabetes'
+    }
   });
   return riesgo_diabetes;
 };

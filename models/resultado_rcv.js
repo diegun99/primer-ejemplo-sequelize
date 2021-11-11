@@ -11,7 +11,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      resultado_rcv.belongsTo(models.tamizaje_id);
+      this.belongsTo(models.tamizaje, {
+        foreignKey: 'tamizaje_id'
+      })
      
     }
   };
@@ -21,6 +23,11 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'resultado_rcv',
+    freezeTableName: true,
+    name: {
+      singular: 'resultado_rcv',
+      plural: 'resultado_rcv'
+    }
   });
   return resultado_rcv;
 };

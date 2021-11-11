@@ -12,8 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       calculo_rcv.hasMany(models.riesgo_cardiovascular, {
-        foreignKey: 'calculo_rcv_id',
-        as: 'riesgo_cardiovascular'
+        foreignKey: 'calculo_rcv_id'
       });
     }
   };
@@ -25,6 +24,11 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'calculo_rcv',
+    freezeTableName: true,
+    name: {
+      singular: 'calculo_rcv',
+      plural: 'calculo_rcv'
+    }
   });
   return calculo_rcv;
 };

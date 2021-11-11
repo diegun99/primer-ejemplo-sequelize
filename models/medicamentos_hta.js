@@ -12,9 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       medicamentos_hta.hasMany(models.riesgo_diabetes, {
-        foreignKey: 'medicamentos_hta_id',
-        as: 'riesgo_diabetes'
-
+        foreignKey: 'medicamentos_hta_id'
       });
     }
   };
@@ -24,6 +22,12 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'medicamentos_hta',
+    freezeTableName: true,
+    name: {
+      singular: 'medicamentos_hta',
+      plural: 'medicamentos_hta'
+    }
+    
   });
   return medicamentos_hta;
 };

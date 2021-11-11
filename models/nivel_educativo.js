@@ -12,8 +12,8 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       nivel_educativo.hasMany(models.entrevistado, {
-        foreignKey: 'nivel_educativo',
-        as: 'entrevistado'
+        foreignKey: 'nivel_educativo'
+
       });
     }
   };
@@ -22,6 +22,11 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'nivel_educativo',
+    freezeTableName: true,
+    name: {
+      singular: 'nivel_educativo',
+      plural: 'nivel_educativo'
+    }
   });
   return nivel_educativo;
 };

@@ -11,7 +11,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      riesgo_cardiovascular.belongsTo(models.calculo_rcv);
+      this.belongsTo(models.calculo_rcv, {
+        foreignKey: 'calculo_rcv_id'
+      })
     }
   };
   riesgo_cardiovascular.init({
@@ -21,10 +23,15 @@ module.exports = (sequelize, DataTypes) => {
     presion_arterial: DataTypes.INTEGER,
     color: DataTypes.STRING,
     puntaje_base: DataTypes.INTEGER,
-    calculo_rcv: DataTypes.INTEGER
+    calculo_rcv_id: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'riesgo_cardiovascular',
+    freezeTableName: true,
+    name: {
+      singular: 'riesgo_cardiovascular',
+      plural: 'riesgo_cardiovascular'
+    }
   });
   return riesgo_cardiovascular;
 };

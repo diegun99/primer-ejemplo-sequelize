@@ -11,14 +11,23 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      tamizaje.belongsTo(models.entrevista_id);
-      tamizaje.belongsTo(models.interpretacion_imc_id);
-      tamizaje.belongsTo(models.frec_cons_frutas_id);
-      tamizaje.belongsTo(models.diagnostico_diabetes_id);
+      
+      this.belongsTo(models.entrevista, {
+        foreignKey: 'entrevista_id'
+      });
+      this.belongsTo(models.interpretacion_imc, {
+        foreignKey: 'interpretacion_imc_id'
+      });
+      this.belongsTo(models.frec_cons_frutas, {
+        foreignKey: 'frec_cons_frutas_id'
+      });
+      this.belongsTo(models.diagnostico_diabetes, {
+        foreignKey: 'diagnostico_diabetes_id'
+      });
 
       tamizaje.hasMany(models.resultado_rcv, {
         foreignKey: 'tamizaje_id',
-        as: 'resultado_rcv'
+
       });
     }
   };
@@ -40,6 +49,11 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'tamizaje',
+    freezeTableName: true,
+    name: {
+      singular: 'tamizaje',
+      plural: 'tamizaje'
+    }
   });
   return tamizaje;
 };

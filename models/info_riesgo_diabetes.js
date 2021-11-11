@@ -20,6 +20,11 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'info_riesgo_diabetes',
+    freezeTableName: true,
+    name: {
+      singular: 'info_riesgo_diabetes',
+      plural: 'info_riesgo_diabetes'
+    }
   });
   return info_riesgo_diabetes;
 };

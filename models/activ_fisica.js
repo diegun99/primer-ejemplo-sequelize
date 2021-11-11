@@ -11,19 +11,22 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      activ_fisica.hasMany(models.riesgo_diabetes, {
-        foreignKey: 'activ_fisica_id',
-        as: 'riesgo_diabetes'
-
+      this.hasMany(models.riesgo_diabetes, {
+        foreignKey: 'activ_fisica_id'
       });
     }
   };
-  activ_fisica.init({
+  activ_fisicas.init({
     descripcion: DataTypes.STRING,
     escala: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'activ_fisica',
+    freezeTableName: true,
+    name: {
+      singular: 'activ_fisica',
+      plural: 'activ_fisica'
+    }
   });
   return activ_fisica;
 };

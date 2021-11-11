@@ -12,8 +12,8 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       tipo_documento.hasMany(models.entrevistado,{
-        foreignKey: 'tipo_documento',
-        as: 'entrevistados'
+        foreignKey: 'tipo_documento_id',
+
       });
     
     }
@@ -23,6 +23,11 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'tipo_documento',
+    freezeTableName: true,
+    name: {
+      singular: 'tipo_documento',
+      plural: 'tipo_documento'
+    }
   });
   return tipo_documento;
 };

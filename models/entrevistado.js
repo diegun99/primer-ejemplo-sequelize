@@ -11,21 +11,32 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      entrevistado.belongsTo(models.tipo_documento);
-      entrevistado.belongsTo(models.estado_civil);
-      entrevistado.belongsTo(models.nivel_educativo);
-      entrevistado.belongsTo(models.estrato_id);
-      entrevistado.belongsTo(models.regimen_salud_id);
-      entrevistado.belongsTo(models.genero_id);
+      this.belongsTo(models.tipo_documento, {
+        foreignKey: 'tipo_documento_id'
+      })
+      this.belongsTo(models.estado_civil, {
+        foreignKey: 'estado_civil_id'
+      })
+      this.belongsTo(models.nivel_educativo, {
+        foreignKey: 'nivel_educativo_id'
+      })
+      this.belongsTo(models.estrato_socioeconomico, {
+        foreignKey: 'estrato_socioeconomico_id'
+      })
+      this.belongsTo(models.regimen_salud, {
+        foreignKey: 'regimen_salud_id'
+      })
+      this.belongsTo(models.genero, {
+        foreignKey: 'genero_id'
+      })
 
       entrevistado.hasMany(models.tamizaje ,{
-        foreignKey: 'entrevista_id',
-        as: 'tamizaje'
+        foreignKey: 'entrevista_id'
       });
 
       entrevistado.hasMany(models.riesgo_diabetes, {
-        foreignKey: 'entrevista_id',
-        as: 'riesgo_diabetes'
+        foreignKey: 'entrevista_id'
+
 
       });
       
@@ -33,14 +44,13 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   entrevistado.init({
-    entrevista_id: DataTypes.INTEGER,
     num_documento: DataTypes.INTEGER,
-    tipo_documento: DataTypes.STRING,
-    num_telefono: DataTypes.INTEGER,
-    estado_civil: DataTypes.INTEGER,
-    nivel_educativo: DataTypes.INTEGER,
+    tipo_documento_id: DataTypes.INTEGER,
+    num_telefono: DataTypes.STRING,
+    estado_civil_id: DataTypes.INTEGER,
+    nivel_educativo_id: DataTypes.INTEGER,
     edad: DataTypes.INTEGER,
-    estrato_id: DataTypes.INTEGER,
+    estrato_socioeconomico_id: DataTypes.INTEGER,
     regimen_salud_id: DataTypes.INTEGER,
     eps: DataTypes.STRING,
     zona_residencia: DataTypes.STRING,
@@ -54,6 +64,11 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'entrevistado',
+    freezeTableName: true,
+    name: {
+      singular: 'entrevistado',
+      plural: 'entrevistado'
+    }
   });
   return entrevistado;
 };
