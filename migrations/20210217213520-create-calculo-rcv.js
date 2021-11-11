@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('calculo_rcvs', {
+    await queryInterface.createTable('calculo_rcv', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -31,6 +31,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('calculo_rcvs');
+    await queryInterface.dropTable('calculo_rcv');
   }
 };

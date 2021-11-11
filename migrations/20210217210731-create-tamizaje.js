@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('tamizajes', {
+    await queryInterface.createTable('tamizaje', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -24,13 +24,28 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       entrevista_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          allowNull: false,
+          model: 'entrevista',
+          key: 'id'
+        }
       },
       interpretacion_imc_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          allowNull: false,
+          model: 'interpretacion_imc',
+          key: 'id'
+        }
       },
       frec_cons_frutas_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          allowNull: false,
+          model: 'frec_cons_frutas',
+          key: 'id'
+        }
       },
       hipertension: {
         type: Sequelize.INTEGER
@@ -42,7 +57,12 @@ module.exports = {
         type: Sequelize.STRING
       },
       diagnostico_diabetes_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          allowNull: false,
+          model: 'diagnostico_diabetes',
+          key: 'id'
+        }
       },
       es_diabetico: {
         type: Sequelize.INTEGER
@@ -61,6 +81,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('tamizajes');
+    await queryInterface.dropTable('tamizaje');
   }
 };

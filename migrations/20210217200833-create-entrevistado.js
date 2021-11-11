@@ -1,39 +1,61 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('entrevistados', {
+    await queryInterface.createTable('entrevistado', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      entrevista_id: {
-        type: Sequelize.INTEGER
-      },
       num_documento: {
         type: Sequelize.INTEGER
       },
-      tipo_documento: {
-        type: Sequelize.STRING
+      tipo_documento_id: {
+        type: Sequelize.STRING,
+        references: {
+          allowNull: false,
+          model: 'tipo_documento',
+          key: 'id'
+        }
       },
       num_telefono: {
         type: Sequelize.INTEGER
       },
-      estado_civil: {
-        type: Sequelize.INTEGER
+      estado_civil_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          allowNull: false,
+          model: 'estado_civil',
+          key: 'id'
+        }
       },
-      nivel_educativo: {
-        type: Sequelize.INTEGER
+      nivel_educativo_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          allowNull: false,
+          model: 'nivel_educativo',
+          key: 'id'
+        }
       },
       edad: {
         type: Sequelize.INTEGER
       },
-      estrato_id: {
-        type: Sequelize.INTEGER
+      estrato_socioeconomico_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          allowNull: false,
+          model: 'estrato_socioeconomico',
+          key: 'id'
+        }
       },
       regimen_salud_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          allowNull: false,
+          model: 'regimen_salud',
+          key: 'id'
+        }
       },
       eps: {
         type: Sequelize.STRING
@@ -60,7 +82,12 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       genero_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          allowNull: false,
+          model: 'genero',
+          key: 'id'
+        }
       },
       createdAt: {
         allowNull: false,
@@ -73,6 +100,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('entrevistados');
+    await queryInterface.dropTable('entrevistado');
   }
 };

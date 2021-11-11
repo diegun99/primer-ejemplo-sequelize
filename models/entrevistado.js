@@ -36,8 +36,6 @@ module.exports = (sequelize, DataTypes) => {
 
       entrevistado.hasMany(models.riesgo_diabetes, {
         foreignKey: 'entrevista_id'
-
-
       });
       
       
