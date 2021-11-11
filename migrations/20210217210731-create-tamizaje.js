@@ -23,11 +23,11 @@ module.exports = {
       actividad_fisica: {
         type: Sequelize.INTEGER
       },
-      entrevista_id: {
+      entrevistado_id: {
         type: Sequelize.INTEGER,
         references: {
           allowNull: false,
-          model: 'entrevista',
+          model: 'entrevistado',
           key: 'id'
         }
       },

@@ -12,8 +12,8 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       
-      this.belongsTo(models.entrevista, {
-        foreignKey: 'entrevista_id'
+      this.belongsTo(models.entrevistado, {
+        foreignKey: 'entrevistado_id'
       });
       this.belongsTo(models.interpretacion_imc, {
         foreignKey: 'interpretacion_imc_id'
@@ -37,7 +37,7 @@ module.exports = (sequelize, DataTypes) => {
     perimetro_abdominal: DataTypes.DOUBLE,
     tension_arterial: DataTypes.INTEGER,
     actividad_fisica: DataTypes.INTEGER,
-    entrevista_id: DataTypes.INTEGER,
+    entrevistado_id: DataTypes.INTEGER,
     interpretacion_imc_id: DataTypes.INTEGER,
     frec_cons_frutas_id: DataTypes.INTEGER,
     hipertension: DataTypes.INTEGER,

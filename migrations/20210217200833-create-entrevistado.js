@@ -12,7 +12,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       tipo_documento_id: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
         references: {
           allowNull: false,
           model: 'tipo_documento',

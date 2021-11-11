@@ -25,8 +25,8 @@ module.exports = (sequelize, DataTypes) => {
       this.belongsTo(models.activ_fisica, {
         foreignKey: 'activ_fisica_id'
       });
-      this.belongsTo(models.entrevista, {
-        foreignKey: 'entrevista_id'
+      this.belongsTo(models.entrevistado, {
+        foreignKey: 'entrevistado_id'
       });
       this.belongsTo(models.cons_frutas, {
         foreignKey: 'cons_frutas_id'
@@ -47,7 +47,7 @@ module.exports = (sequelize, DataTypes) => {
     imc_id: DataTypes.INTEGER,
     perim_abdomen_id: DataTypes.INTEGER,
     activ_fisica_id: DataTypes.INTEGER,
-    entrevista_id: DataTypes.INTEGER,
+    entrevistado_id: DataTypes.INTEGER,
     cons_frutas_id: DataTypes.INTEGER,
     medicamentos_hta_id: DataTypes.INTEGER,
     nivel_glucosa_id: DataTypes.INTEGER,

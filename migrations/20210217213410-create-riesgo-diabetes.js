@@ -41,7 +41,7 @@ module.exports = {
           key: 'id'
         }
       },
-      entrevista_id: {
+      entrevistado_id: {
         type: Sequelize.INTEGER,
         references: {
           allowNull: false,

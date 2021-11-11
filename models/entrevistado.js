@@ -31,11 +31,11 @@ module.exports = (sequelize, DataTypes) => {
       })
 
       entrevistado.hasMany(models.tamizaje ,{
-        foreignKey: 'entrevista_id'
+        foreignKey: 'entrevistado_id'
       });
 
       entrevistado.hasMany(models.riesgo_diabetes, {
-        foreignKey: 'entrevista_id'
+        foreignKey: 'entrevistado_id'
       });
       
       
